@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour {
 
     private PlayerController currentPlayer;
     public PlayerController mainPlayer;
-    private Pathfinding.PathGenerator pathFinding;
 
     public enum ACTION
     {
@@ -44,7 +43,6 @@ public class GameManager : MonoBehaviour {
 	void Start () {
         instance = this;
 
-        pathFinding = new Pathfinding.PathGenerator();
         allPlayers = new List<NPCController>();
         npcQueue = new Queue<NPCController>();
         mainPlayer = player.GetComponent<MainPlayerController>();
@@ -53,7 +51,7 @@ public class GameManager : MonoBehaviour {
 	
     public List<GameObject> FindNearPlayers(PlayerController player)
     {
-        return pathFinding.FindTargets(player);
+		return Pathfinding.FindTargets(player);
     }
 
     public void RegisterNPC(NPCController controller)
@@ -76,7 +74,7 @@ public class GameManager : MonoBehaviour {
             ((MainPlayerController)player).SetBusyState(true);
             allPlayers.Sort(delegate (NPCController player1, NPCController player2)
             {
-                return player1.speed.CompareTo(player2.speed);
+                return player1.priority.CompareTo(player2.priority);
             });
             foreach (NPCController npcPlayer in allPlayers)
             {

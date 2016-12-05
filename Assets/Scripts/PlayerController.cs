@@ -3,8 +3,9 @@ using System.Collections;
 
 public abstract class PlayerController : MonoBehaviour {
 
-    public float speed = 20f;
-    public int vision = 5;
+    public float priority = 20f;
+	public int visionRange = 5;
+    public int attackRange = 1;
 
     protected bool isMoving;
     protected Vector3 target;

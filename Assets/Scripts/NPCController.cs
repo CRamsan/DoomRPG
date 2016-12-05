@@ -7,7 +7,6 @@ public class NPCController : PlayerController, IInteractable {
 
     public GameObject canvasGameObject;
 
-    private Pathfinding.Node node;
     private Vector3 enemyLocation;
 
     // Use this for initialization
@@ -25,13 +24,17 @@ public class NPCController : PlayerController, IInteractable {
 
         List<GameObject> playersNearby = GameManager.Instance().FindNearPlayers(this) ;
 
-        GameObject mainPlayer = GameManager.Instance().mainPlayer.gameObject;
-        bool enemyIsVisible = Pathfinding.IsObjectVisible(transform.position, mainPlayer, 25);
+		GameObject target = null;
+		bool enemyIsVisible = false;
+		if (playersNearby.Count > 0) {
+			target = playersNearby [0];
+			enemyIsVisible = Pathfinding.IsObjectVisible(transform.position, target, 25);
+		}
         if (enemyIsVisible || enemyLocation.magnitude != 0)
         {
             if (enemyIsVisible)
             {
-                enemyLocation = mainPlayer.transform.position;
+				enemyLocation = target.transform.position;
             }
             Vector3 targetDirection = enemyLocation - transform.position;
             int vX, vY;
@@ -80,17 +83,7 @@ public class NPCController : PlayerController, IInteractable {
     {
         canvasGameObject.SetActive(!canvasGameObject.activeSelf);
     }
-
-    public void SetNode(Pathfinding.Node node)
-    {
-        this.node = node;
-    }
-
-    public Pathfinding.Node GetNode()
-    {
-        return this.node;
-    }
-
+		
     /// <summary>
     /// Provide a Vector3 direction and this method will set the target for this movement.
     /// </summary>

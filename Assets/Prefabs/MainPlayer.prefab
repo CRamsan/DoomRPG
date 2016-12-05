@@ -25,6 +25,7 @@ GameObject:
   - 81: {fileID: 81000012344987936}
   - 114: {fileID: 114000012688101804}
   - 114: {fileID: 114000011027821108}
+  - 114: {fileID: 114000012241661270}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -126,7 +127,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 200
+  far clip plane: 100
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -150,7 +151,7 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013967403888}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -211,6 +212,23 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -60
   maximumY: 60
+--- !u!114 &114000012241661270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011961315362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe15214e7d8124beabef8ff4484426fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 1, g: 0, b: 0, a: 1}
+  startAlpha: 0
+  maxAlpha: 1
+  rampUpTime: 0.5
+  holdTime: 0.5
+  rampDownTime: 0.5
 --- !u!114 &114000012688101804
 MonoBehaviour:
   m_ObjectHideFlags: 1
