@@ -25,7 +25,6 @@ GameObject:
   - 81: {fileID: 81000012344987936}
   - 114: {fileID: 114000012688101804}
   - 114: {fileID: 114000011027821108}
-  - 114: {fileID: 114000012241661270}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -212,23 +211,6 @@ MonoBehaviour:
   maximumX: 360
   minimumY: -60
   maximumY: 60
---- !u!114 &114000012241661270
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011961315362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe15214e7d8124beabef8ff4484426fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 1}
-  startAlpha: 0
-  maxAlpha: 1
-  rampUpTime: 0.5
-  holdTime: 0.5
-  rampDownTime: 0.5
 --- !u!114 &114000012688101804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -264,9 +246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e29dfd7813f6b4abed9a7aeffa468d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  vision: 5
-  cameraDelegate: {fileID: 1000011961315362}
+  priority: 20
+  visionRange: 5
+  actionRange: 1
+  cameraDelegate: {fileID: 114000012688101804}
   spinnerController: {fileID: 114000013169566610}
 --- !u!124 &124000010359864950
 Behaviour:

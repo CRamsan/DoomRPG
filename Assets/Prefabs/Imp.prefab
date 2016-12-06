@@ -37,7 +37,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012512790736}
   - 65: {fileID: 65000010468137082}
-  - 114: {fileID: 114000010105639986}
   - 114: {fileID: 114000013925112642}
   m_Layer: 9
   m_Name: Imp
@@ -66,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013693973792}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -12}
+  m_LocalPosition: {x: -20, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -85,17 +84,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 4, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114000010105639986
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013693973792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5086d09a13981124b8830ed0fb96d25f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000013925112642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,8 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a7cab3147410d4094f75c22dd5121c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  vision: 5
+  priority: 20
+  visionRange: 5
+  actionRange: 1
   canvasGameObject: {fileID: 0}
 --- !u!114 &114000014261987132
 MonoBehaviour:

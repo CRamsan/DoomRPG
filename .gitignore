@@ -4,3 +4,7 @@ Library/metadata/
 Library/ShaderCache/
 Assets/WallTech01Free.meta
 Assets/ConstructionSitePack.meta
+Library/shadercompiler-*
+Temp/
+obj/
+

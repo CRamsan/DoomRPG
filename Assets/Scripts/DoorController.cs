@@ -4,15 +4,20 @@ using System;
 
 public class DoorController : MonoBehaviour, IInteractable{
 
-    public GameObject doorGameObject;
     public float speed = 5;
 
+	private GameObject doorGameObject;
     private Vector3 closedPosition, openedPosition, targetPosition;
     private bool isMoving;
     private bool isClosed;
 
 	// Use this for initialization
 	void Start () {
+		if (transform.GetChild (0) == null) {
+			throw new UnityException ("This gameObject does not have a child attached to it");
+		}
+		doorGameObject = transform.GetChild(0).gameObject;
+
         closedPosition = doorGameObject.transform.position;
         openedPosition = closedPosition + new Vector3(0, 4, 0);
         isMoving = false;

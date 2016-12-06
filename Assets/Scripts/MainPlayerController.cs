@@ -3,8 +3,7 @@ using System.Collections;
 
 public class MainPlayerController : PlayerController
 {
-
-    public GameObject cameraDelegate;
+	public CameraController cameraDelegate;
     public LoadingSpinnerController spinnerController;
 
     private bool isBusy;
@@ -15,6 +14,20 @@ public class MainPlayerController : PlayerController
     {
         isMoving = false;
     }
+
+	void Update(){
+		if (InputManager.WasActionPressed(InputManager.CONTROLLER_ACTION.ACTION))
+		{
+			RaycastHit hit;
+			if (cameraDelegate.RaycastFromGaze(out hit, actionRange)) {
+				IInteractable target = hit.collider.gameObject.GetComponent<IInteractable> ();
+				if (target != null) {
+					target.Interact (gameObject);
+				}
+			}
+		}	
+
+	}
 
     protected new void FixedUpdate()
     {

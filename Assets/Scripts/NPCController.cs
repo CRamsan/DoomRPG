@@ -3,21 +3,22 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
+[RequireComponent (typeof (UtilFlashOnHit))]
 public class NPCController : PlayerController, IInteractable {
 
     public GameObject canvasGameObject;
 
     private Vector3 enemyLocation;
+	private bool npcHasText;
+	private UtilFlashOnHit flashOnHit; 
 
     // Use this for initialization
     void Start () {
         GameManager.Instance().RegisterNPC(this);
+		npcHasText = canvasGameObject != canvasGameObject;
+		flashOnHit = GetComponent<UtilFlashOnHit> ();
     } 
-
-    // Update is called once per frame
-    void Update () {
-    }
-
+		
     public void FindNextAction()
     {
         GameManager.ACTION action = GameManager.ACTION.PASS;
@@ -81,7 +82,11 @@ public class NPCController : PlayerController, IInteractable {
 
     public void Interact(GameObject caller)
     {
-        canvasGameObject.SetActive(!canvasGameObject.activeSelf);
+		if (npcHasText) {
+			canvasGameObject.SetActive (!canvasGameObject.activeSelf);
+		} else {
+			flashOnHit.StartFlash ();
+		}
     }
 		
     /// <summary>

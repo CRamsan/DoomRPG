@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour {
 	
     public List<GameObject> FindNearPlayers(PlayerController player)
     {
-		return Pathfinding.FindTargets(player);
+		return Pathfinding.FindNearTargets(player);
     }
 
     public void RegisterNPC(NPCController controller)

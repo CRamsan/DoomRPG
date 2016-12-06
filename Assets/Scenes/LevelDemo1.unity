@@ -17792,6 +17792,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4000012895211242, guid: ad6b00b6a7567524eba0df6ec5863b44,
     type: 2}
   m_PrefabInternal: {fileID: 1720076436}
+--- !u!114 &1722917282 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000012688101804, guid: bfbbf99b445dde3418e3c3139af537e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1879725541}
+  m_Script: {fileID: 11500000, guid: 2665b0a40d310fa439d7c2467c92dd58, type: 3}
 --- !u!1001 &1725861598
 Prefab:
   m_ObjectHideFlags: 0
@@ -19186,21 +19192,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114000012241661270, guid: bfbbf99b445dde3418e3c3139af537e3,
+    - target: {fileID: 114000013560612498, guid: bfbbf99b445dde3418e3c3139af537e3,
         type: 2}
-      propertyPath: rampUpTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012241661270, guid: bfbbf99b445dde3418e3c3139af537e3,
-        type: 2}
-      propertyPath: holdTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012241661270, guid: bfbbf99b445dde3418e3c3139af537e3,
-        type: 2}
-      propertyPath: rampDownTime
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: cameraDelegate
+      value: 
+      objectReference: {fileID: 1722917282}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfbbf99b445dde3418e3c3139af537e3, type: 2}
   m_IsPrefabParent: 0

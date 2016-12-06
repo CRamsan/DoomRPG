@@ -5,21 +5,11 @@ public abstract class PlayerController : MonoBehaviour {
 
     public float priority = 20f;
 	public int visionRange = 5;
-    public int attackRange = 1;
+    public int actionRange = 1;
 
     protected bool isMoving;
     protected Vector3 target;
     protected RaycastHit hit;
-
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     protected virtual void FixedUpdate()
     {

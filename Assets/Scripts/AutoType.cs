@@ -4,36 +4,44 @@ using System.Collections;
 
 public class AutoType : MonoBehaviour
 {
+    public float typeWaitTime = 0.2f;
+    public AudioClip typeSoundClip;
 
-    public float letterPause = 0.2f;
-    public AudioClip sound;
-
-    private Text text;
-    private string message;
+	private Text textComponent;
+	private string textMessage;
 
     // Use this for initialization
     void OnEnable()
     {
-        text = GetComponent<Text>();
-        message = text.text;
-        text.text = "";
-        StartCoroutine(TypeText());
+		StartTyping ();
     }
 
     IEnumerator TypeText()
     {
-        foreach (char letter in message.ToCharArray())
+        foreach (char letter in textMessage.ToCharArray())
         {
-            text.text += letter;
-            if (sound)
-                GetComponent<AudioSource>().PlayOneShot(sound);
+            textComponent.text += letter;
+			if (typeSoundClip != null) {
+				GetComponent<AudioSource> ().PlayOneShot (typeSoundClip);
+			}
             yield return 0;
-            yield return new WaitForSeconds(letterPause);
+            yield return new WaitForSeconds(typeWaitTime);
         }
     }
 
     void OnDisable()
     {
-        text.text = message;
+		FinishTyping ();
     }
+
+	public void StartTyping() {
+		textComponent = GetComponent<Text>();
+		textMessage = textComponent.text;
+		textComponent.text = "";
+		StartCoroutine(TypeText());
+	}
+
+	public void FinishTyping(){
+		textComponent.text = textMessage;
+	}
 }

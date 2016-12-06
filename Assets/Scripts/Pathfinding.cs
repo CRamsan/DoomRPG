@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Pathfinding {
 
-	public static List<GameObject> FindTargets(PlayerController player) {
+	public static List<GameObject> FindNearTargets(PlayerController player) {
 
 		List<GameObject> possibleTargets = new List<GameObject>();
 
